@@ -20,7 +20,12 @@
     return node;
   }
   
-  $.fn.to_json = function(){
+  $.fn.to_json = function(opts){
+    if(typeof opts === 'undefined'){
+      opts = {
+        tree: true
+      };
+    }
     var data = {};
     this.find(':input').each(function(){
       var self = $(this);
@@ -49,12 +54,17 @@
           break;
       }
       
-      var keys = name.split('.');
-      if(keys.length > 1){
-        var key = keys.pop();
-        var node = get_data_node(data, keys);
+      if(opts.tree){
+        var keys = name.split('.');
+        if(keys.length > 1){
+          var key = keys.pop();
+          var node = get_data_node(data, keys);
+        }else{
+          var key = keys[0];
+          var node = data;
+        }
       }else{
-        var key = keys[0];
+        var key = name;
         var node = data;
       }
       

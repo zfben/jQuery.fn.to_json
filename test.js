@@ -67,4 +67,10 @@ $(function(){
       a: [{b: 'b'}, {c: ['1']}, {c: ['2']}]
     }, "a: [{b: 'b'}, {c: ['1']}, {c: ['2']}]");
   });
+  
+  test('Options', function(){
+    deepEqual($('#Options_notree').to_json({tree: false}), {
+      'a.b': 'a.b'
+    }, "'a.b': 'a.b'");
+  });
 });
