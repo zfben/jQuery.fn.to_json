@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery.fn.to_json Test</title>
+    <link href="http://code.jquery.com/qunit/qunit-git.css" rel="stylesheet" />
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="http://code.jquery.com/qunit/qunit-git.js"></script>
+    <script src="jQuery.fn.to_json.js"></script>
+    <script src="test.js"></script>
+  </head>
+  <body>
+    <h1 id="qunit-header">jQuery.fn.to_json Test</h1>
+    <h2 id="qunit-banner"></h2>
+    <div id="qunit-testrunner-toolbar"></div>
+    <h2 id="qunit-userAgent"></h2>
+    <ol id="qunit-tests"></ol>
+    <div id="qunit-fixture">
+      <div id="InputTypes_all_types">
+        <input value="no_name" />
+        <input name="no_type" value="no_type" />
+        <input type="button" name="button" value="button" />
+        <input type="checkbox" name="checkbox" value="checkbox" checked />
+        <input type="date" name="date" value="2012-12-21" />
+        <input type="datetime" name="datetime" value="datetime" />
+        <input type="datetime-local" name="datetime-local" value="datetime-local" />
+        <input type="email" name="email" value="email" />
+        <input type="file" name="file" value="" />
+        <input type="hidden" name="hidden" value="hidden" />
+        <input type="image" name="image" value="image" />
+        <input type="month" name="month" value="month" />
+        <input type="number" name="number" value="0" />
+        <input type="password" name="password" value="password" />
+        <input type="radio" name="radio" value="radio" checked />
+        <input type="range" name="range" value="1" />
+        <input type="reset" name="reset" value="reset" />
+        <input type="submit" name="submit" value="submit" />
+        <input type="text" name="text" value="text" />
+        <input type="time" name="time" value="time" />
+        <input type="url" name="url" value="url" />
+        <input type="week" name="week" value="week" />
+        <select name="select"><option value="select" selected></option></select>
+        <textarea name="textarea">textarea</textarea>
+        <input list="datalist" name="datalist" />
+        <datalist id="datalist"><option value="datalist" selected></option></datalist>
+      </div>
+      
+      <div id="InputTypes_checkbox">
+        <input type="checkbox" name="unchecked" value="uncheck" />
+        <input type="checkbox" name="checked" checked />
+      </div>
+      
+      <div id="InputTypes_radio">
+        <input type="radio" name="radio_" value="" />
+        <input type="radio" name="radio_" value="checked" checked />
+      </div>
+      
+      <div id="DataFormat_0">
+        <input name="a" value="a" />
+        <input name="b" value="b" />
+      </div>
+      
+      <div id="DataFormat_1">
+        <input name="a.b" value="a.b" />
+      </div>
+      
+      <div id="DataFormat_2">
+        <input name="a[]" value="1" />
+        <input name="a[]" value="2" />
+      </div>
+      
+      <div id="DataFormat_3">
+        <input name="a.b[]" value="1" />
+        <input name="a.b[]" value="2" />
+        <input name="c" value="c" />
+      </div>
+    </div>
+  </body>
+</html>
