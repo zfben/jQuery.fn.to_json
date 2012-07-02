@@ -4,10 +4,18 @@
   var get_data_node = function(data, keys){
     var node = data;
     for(i in keys){
-      if(typeof node[keys[i]] === 'undefined'){
-        node[keys[i]] = {}
+      var key = keys[i];
+      if(/\[\]$/.test(key)){
+        key = key.substring(0, key.length - 2);
+        if(typeof node[key] === 'undefined'){
+          node[key] = []
+        }
+      }else{
+        if(typeof node[key] === 'undefined'){
+          node[key] = {}
+        }
       }
-      node = node[keys[i]];
+      node = node[key];
     }
     return node;
   }
@@ -52,13 +60,25 @@
       
       if(/\[\]$/.test(key)){
         key = key.substring(0, key.length - 2);
-        if(typeof node[key] === 'undefined'){
-          node[key] = [value];
+        if($.isArray(node)){
+          var obj = {};
+          obj[key] = [value];
+          node.push(obj);
         }else{
-          node[key].push(value);
+          if(typeof node[key] === 'undefined'){
+            node[key] = [value];
+          }else{
+            node[key].push(value);
+          }
         }
       }else{
-        node[key] = value;
+        if($.isArray(node)){
+          var obj = {};
+          obj[key] = value;
+          node.push(obj);
+        }else{
+          node[key] = value;
+        }
       }
 
     });
